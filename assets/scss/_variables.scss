@@ -1,0 +1,17 @@
+// fonts
+/*
+@font-face {
+    font-family: "Pier Sans";
+    src: url("./fonts/PierSans-Regular.otf") format("otf");
+}
+$family-primary: Pier Sans, sans-serif;
+*/
+// Bulma colors
+$primary: #079992;
+$primary-invert: findColorInvert($primary);
+$colors: ('primary': ($primary, $primary-invert));
+
+//Footer
+$footer-background-color: $primary;
+$footer-padding: 3rem;
+$footer-color: true;
