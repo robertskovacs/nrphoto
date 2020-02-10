@@ -10,4 +10,11 @@
 }
 */
 
+//navbar
+$navbar-item-color: $white;
+
+.navbar-item {
+    text-transform: uppercase;
+}
+
 @import '~bulma';
