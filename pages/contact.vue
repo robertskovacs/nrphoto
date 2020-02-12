@@ -1,31 +1,58 @@
 <template>
-    <div class="container">
-        <Navbar />
-        <div class="columns">
-            <div class="column">
+  	<div class="wrapper">
+		<section class="hero is-fullheight">
+			<div class="hero-head">
+				<Navbar />
+			</div>
+			<div class="hero-body">
+                <div class="hero-img">
+                    <img src="https://d2vw2j0fzp6c9l.cloudfront.net/images/sample_photos/sample-275_XL.jpg">
+                </div>
             </div>
-            <div class="column is-one-third">
-                <form action="/submission" name="contact" method="POST" data-netlify="true">  
-                    <input class="input" type="text" name="name" placeholder="Név (kötelező)">
-                    <input class="input" type="text" name="email" placeholder="E-mail cím (kötelező)">
-                    <input class="input" type="tel" name="telephone" placeholder="Telefonszám">
-                    <textarea class="textarea" name="message" placeholder="Kérlek írj magadról és az elképzeléseidről pár sort."></textarea>
-                    <div class="control">
-                        <button class="button is-primary" type="submit">Küldés</button>
-                    </div> 
-                </form>
+		</section>
+
+        <section class="container">
+            <div class="columns">
+                <div class="column">
+                </div>
+                <div class="column is-half has-text-centered">
+                    <h2>KEZDŐDJÖN EL A KALAND</h2>
+                    <p>Amennyiben szeretnétek, hogy pillanataitokat Mi örökítsük meg, kérj be árajánlatot.</p>
+                </div>
+                <div class="column">
+                </div>
+			    
             </div>
-            <div class="column">
+		</section>
+
+		<section class="container">
+            <div class="columns">
+                <div class="column">
+                </div>
+                <div class="column is-half">
+                    <ContactForm />
+                </div>
+                <div class="column">
+                </div>
+			    
             </div>
-        </div>
-    </div>
+		</section>
+ 	</div>
 </template>
 
 <script>
 import Navbar from "~/components/Navbar"
+import ContactForm from "~/components/ContactForm"
 export default {
     components: {
-        Navbar
+        Navbar,
+        ContactForm
     }
 }
 </script>
+
+<style lang="scss" scoped>
+.hero.is-fullheight {
+    min-height: 80vh !important;
+}
+</style>

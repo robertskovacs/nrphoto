@@ -3,12 +3,29 @@
 
 @import "./scss/variables";
 
-/*
-.title {
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+
+
+h1, h2 {
     font-family: $family-primary;
-    font-weight: 700;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-weight: 300;
+    text-transform: uppercase;
 }
-*/
+
+h1 {
+    line-height: 1.25;
+    font-size: 2rem !important;
+    letter-spacing: .375rem;
+}
+
+h2 {
+    font-size: 1.625rem !important;
+    line-height: 1.4;
+    letter-spacing: .25rem;
+}
 
 //navbar
 $navbar-item-color: $white;
@@ -16,5 +33,90 @@ $navbar-item-color: $white;
 .navbar-item {
     text-transform: uppercase;
 }
+
+//customs
+img {
+    width: 100%;
+    height:100%;
+}
+
+//Hero
+
+.hero-body {
+	padding:0 !important;
+}
+
+.hero-head {
+	position: absolute;
+	width: 100%;
+}
+
+.hero-img {
+	position: relative;
+    overflow: hidden;
+}
+
+.hero-img, img {
+	position: absolute;
+    object-fit: cover; /*magic*/
+    object-position: center center;
+    width: 100%;
+    min-height: 66%;
+}
+
+//Carousel
+.hero.is-fullheight .hero-body, .hero.is-fullheight-with-navbar {
+    align-items: stretch !important;
+}
+
+//button
+.button {
+    height: auto !important;
+    border-radius:0px !important;
+    line-height: 2 !important;
+    padding: 14px 30px !important;
+    font-size: .75rem !important;
+    letter-spacing: .188rem !important;
+    text-transform: uppercase !important;
+}
+
+//input
+input, textarea, select {
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    background: 0 0;
+    border-top: none !important;
+    border-right: none !important;
+    border-left: none !important;
+    padding: 10px 0;
+    // border: 1px solid #e9e9e9 !important;
+    border-radius: 0;
+    // height: 50px;
+    padding: 20px;
+    // -webkit-appearance: none;
+}
+
+.select.is-primary select {
+    border-color: $secondary !important;
+}
+
+
+label, .label {
+    letter-spacing: .125rem;
+    line-height: 1.63;
+    text-transform: uppercase;
+}
+
+.label {
+    font-weight: 700 !important;
+}
+
+.field {
+    margin-bottom: 30px !important;
+    font-size: .75rem !important;
+}
+
+//custom things
+
 
 @import '~bulma';

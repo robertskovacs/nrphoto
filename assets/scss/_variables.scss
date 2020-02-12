@@ -1,18 +1,19 @@
+//colors
+$secondary: #cecece;
+
 // fonts
-/*
-@font-face {
-    font-family: "Pier Sans";
-    src: url("./fonts/PierSans-Regular.otf") format("otf");
-}
-$family-primary: Pier Sans, sans-serif;
-*/
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+$family-primary: Montserrat, sans-serif;
+
 // Bulma colors
-$primary: #079992;
+$primary: #2d2d2d;
 $primary-invert: findColorInvert($primary);
 $colors: ('primary': ($primary, $primary-invert));
 
+
+
 //Footer
-$footer-background-color: $primary;
+$footer-background-color: #fff;
 $footer-padding: 3rem;
 $footer-color: true;
 
@@ -24,3 +25,9 @@ $hero-body-padding:0rem !important;
 $hero-body-padding-small:0rem !important;
 $hero-body-padding-medium:0rem !important;
 $hero-body-padding-large:0rem !important;
+
+//Input
+$input-border-color: $secondary;
+$input-focus-border-color: $primary;
+$input-arrow: $secondary;
+$input-focus-border-color: $primary;

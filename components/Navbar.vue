@@ -4,9 +4,9 @@
       <nav class="navbar" v-bind:class="{ hidden: !isOpen}" role="navigation" aria-label="main navigation">
         <div class="container">
           <div class="navbar-brand">
-            <a class="navbar-item">
+            <a class="navbar-item" href="/">
               <!--<img src="https://bulma.io/images/bulma-type-white.png" alt="Logo">-->
-              <p>NRPhoto</p>
+              <p>NR Photo</p>
             </a>
             <span role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" @click="isOpen = !isOpen" v-bind:class="{'is-active': isOpen}">
               <span></span>
