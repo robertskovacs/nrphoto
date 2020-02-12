@@ -96,6 +96,10 @@ input, textarea, select {
     // -webkit-appearance: none;
 }
 
+input[type="radio"]{
+    -webkit-appearance: radio !important;
+}
+
 .select.is-primary select {
     border-color: $secondary !important;
 }
