@@ -44,12 +44,44 @@ export default {
     '@nuxtjs/pwa',
     // Doc: https://github.com/nuxt-community/dotenv-module
     '@nuxtjs/dotenv',
-    '@nuxtjs/style-resources'
+    '@nuxtjs/style-resources',
+    [
+      'nuxt-fontawesome', {
+        imports: [
+        {
+          set: '@fortawesome/free-solid-svg-icons',
+          icons: ['fas']
+        },
+        {
+          set:'@fortawesome/free-brands-svg-icons',
+          icons: ['fab']
+        }
+      ]
+      }
+    ]
   ],
   styleResources: {
     scss: [
       '~assets/scss/main.scss'
       ]
+  },
+  router: {
+    scrollBehavior(to, savedPosition) {
+      if (savedPosition) {
+        return savedPosition
+      } else {
+        let position = {}
+        if (to.matched.length < 2) {
+          position = { x: 0, y: 0 }
+        } else if (to.matched.some(r => r.components.default.options.scrollToTop)) {
+          position = { x: 0, y: 0 }
+        }
+        if (to.hash) {
+          position = { selector: to.hash }
+        }
+        return position
+      }
+    }
   },
   /*
   ** Build configuration

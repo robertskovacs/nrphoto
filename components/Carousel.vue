@@ -1,11 +1,19 @@
 <template>
     <div class="carousel">
-        <img :src="images[activeImage].big">
-        <div class="carousel-nav-next">
-            <button class="button" v-on:click="nextImg">next</button>
+            <img :src="images[activeImage].big">
+        <div v-on:click="nextImg" class="carousel-nav-next">
+            <a class="icon is-small">
+                <font-awesome-icon :icon="['fas', 'chevron-right']"/>
+            </a>
         </div>
-        <div class="carousel-nav-prev">
-            <button class="button" v-on:click="prevImg">prev</button>
+        <div v-on:click="nextImg" class="carousel-nav-prev">
+            <a class="icon is-small">
+                <font-awesome-icon :icon="['fas', 'chevron-left']"/>
+            </a>
+        </div>
+
+        <div class="main-logo-wrapper">
+            <img class="main-logo" src="/logo-white.png">
         </div>
         
     </div>
@@ -71,4 +79,10 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
+a {
+    color:white;
+}
+a:hover {
+    color:#cecece;
+}
 </style>

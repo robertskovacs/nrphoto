@@ -7,9 +7,6 @@
 
             <a class="brand-item" href="/">
               <!--<img class="logo"  alt="Logo" src="/logo.svg">-->
-              <h2>
-                NR Photo
-              </h2>
             </a>
 
             <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" @click="isOpen = !isOpen" v-bind:class="{'is-active': isOpen}">
@@ -29,7 +26,7 @@
                 Rólunk 
               </a>
 
-              <a href="/" class="navbar-item">
+              <a href="/#pillanatok" class="navbar-item">
                 Pillanaok
               </a>
 
@@ -37,8 +34,18 @@
                 Partnereink
               </a>
 
-              <a href="/contact" class="navbar-item contact-link">
+              <a href="/contact" class="navbar-item">
                 Árajánlat
+              </a>
+
+              <a href="https://www.facebook.com/nagyrichardphoto/" class="navbar-item">
+                <span class="icon is-medium">
+                  <font-awesome-icon :icon="['fab', 'facebook-f']"/>
+                </span>
+              </a>
+
+              <a href="https://www.instagram.com/nagyrichardphoto/" class="navbar-item">
+                <font-awesome-icon :icon="['fab', 'instagram']"/>
               </a>
 
             </div>
