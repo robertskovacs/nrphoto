@@ -1,6 +1,6 @@
 <template>
     <div class="contact-form-wrapper">
-        <form action="/submission" name="contact" method="POST" data-netlify="true">
+        <form name="contact" method="POST" data-netlify="true">
             <div class="field">
                 <label class="label">NÉV *</label>
                 <div :bind="name" class="control">
@@ -92,6 +92,7 @@ export default {
         
         checkForm (e) {
             if (this.name && this.email && this.message) {
+                router.push("/submission")
                 return true;
             }
 
