@@ -1,7 +1,6 @@
 <template>
     <div class="contact-form-wrapper">
         <form
-            netlify
             @submit.prevent="checkForm"
             >
                 <div class="field">
@@ -90,12 +89,9 @@ export default {
         const axiosConfig = {
             header: { "Content-Type": "application/x-www-form-urlencoded" }
         };
-        console.log(...this)
-        console.log(this)
         this.$axios.post(
             "/",
             this.encode({
-            "form-name": "contact",
             ...this.form
             }),
             axiosConfig
@@ -135,15 +131,13 @@ export default {
             e.preventDefault();
       
         },
-        encode(data) {
-            const formData = new FormData();
-
-            for (const key of Object.keys(data)) {
-                formData.append(key, data[key]);
-            }
-
-            return formData;
-        }
+        encode (data) {
+            return Object.keys(data)
+                .map(
+                key => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`
+                )
+                .join("&");
+        },
         
     }
 }
