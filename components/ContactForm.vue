@@ -20,17 +20,16 @@
 
             <div class="field">
                 <label class="label">MILYEN TÍPUSÚ FOTÓZÁS ÉRDEKELNE? *</label>
+                
                 <div class="control"> 
                     <label class="radio">
                     <input v-model="service" type="radio" name="service" value="Jegyes">
                     Jegyes
                     </label>
-                    <br>
                     <label class="radio">
                     <input v-model="service" type="radio" name="service" value="Esküvő">
                     Esküvői
                     </label>
-                    <br>
                     <label class="radio">
                     <input v-model="service" type="radio" name="service" vlaue="Család">
                     Család
@@ -82,7 +81,7 @@ export default {
             name: null,
             email: null,
             message: null,
-            service: null,
+            service: '',
             errors: []
         }
     },
@@ -102,7 +101,7 @@ export default {
                 this.$router.push("/submission");
             })
             .catch(() => {
-                this.$router.push("404");
+                this.$router.push("/404");
             });
         },
         checkForm:function(e) {

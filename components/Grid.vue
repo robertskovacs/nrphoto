@@ -83,6 +83,8 @@ export default {
     }
 }
 </script>
-
-<style lang="scss">
+<style lang="scss" scoped>
+img, figure {
+    height: 100% !important;
+}
 </style>

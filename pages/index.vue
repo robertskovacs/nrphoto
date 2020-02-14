@@ -62,7 +62,9 @@
 			<div class="columns">
 				<div class="column">
 					<nuxt-link to="/pillanatok/eljegyzes">
-						<img class="image is-300x300" src="https://bulma.io/images/placeholders/480x480.png">
+						<figure class="image is-square">
+							<img src="https://bulma.io/images/placeholders/480x480.png">
+						</figure>
 						<div class="has-text-centered">
 							<h2>Eljegyzés</h2>
 							<h3>Valami új kezdete</h3>
@@ -71,7 +73,9 @@
 				</div>
 				<div class="column">
 					<nuxt-link to="/pillanatok/eskuvo">
-						<img class="image is-300x300" src="https://bulma.io/images/placeholders/480x480.png">
+						<figure class="image is-square">
+							<img src="https://bulma.io/images/placeholders/480x480.png">
+						</figure>
 						<div class="has-text-centered">
 							<h2>Esküvő</h2>
 							<h3>A nagy nap</h3>
@@ -80,7 +84,9 @@
 				</div>
 				<div class="column">
 					<nuxt-link to="/pillanatok/csalad">
-						<img class="image is-300x300" src="https://bulma.io/images/placeholders/480x480.png">
+						<figure class="image is-square">
+							<img src="https://bulma.io/images/placeholders/480x480.png">
+						</figure>
 						<div class="has-text-centered">
 							<h2>Család</h2>
 							<h3>Babavárás, gyerekkor</h3>
@@ -94,7 +100,7 @@
 			<div class="columns">
 				<div class="column">
 				</div>
-				<div class="column">
+				<div class="column has-text-centered">
 					<a href="/contact">
 						<button class="button is-primary">Lépj velünk kapcsolatba</button>
 					</a>
