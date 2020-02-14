@@ -1,6 +1,6 @@
 <template>
     <div class="contact-form-wrapper">
-        <form name="contact" method="POST" data-netlify="true" onsubmit="return checkForm()">
+        <form name="contact" method="POST" data-netlify="true" OnClientClick="return checkForm()">
             <div class="field">
                 <label class="label">NÉV *</label>
                 <div class="control">
@@ -84,7 +84,7 @@ export default {
         }
     },
     methods: {
-        checkForm (e) {
+        checkForm () {
 
             if (this.name && this.email && this.message && this.service) {
                 this.$router.push("/submission")
