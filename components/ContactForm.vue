@@ -1,9 +1,8 @@
 <template>
     <div class="contact-form-wrapper">
         <form
+            ...
             @submit.prevent="checkForm"
-            data-netlify="true"
-            data-netlify-honeypot="bot-field"
             >
 
                 <div class="field">
