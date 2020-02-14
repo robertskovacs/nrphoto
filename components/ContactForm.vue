@@ -84,16 +84,10 @@ export default {
         }
     },
     methods: {
-        validation () {
-            if(!this.name || !this.email || !this.message) {
-                this.error="A csillaggal jelölt mezők kitöltése kötelező."
-            }
-        },
-        
         checkForm (e) {
 
             if (this.name && this.email && this.message && this.service) {
-                router.push("/submission")
+                this.$router.push("/submission")
                 return true;
             }
 
@@ -116,10 +110,7 @@ export default {
                 this.errors.push('Üzenet kitöltése kötelező');
             }
 
-            
-
             e.preventDefault();
-
       
         }
     }
