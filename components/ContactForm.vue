@@ -1,10 +1,9 @@
 <template>
     <div class="contact-form-wrapper">
         <form
-            ...
+            method="post"
             @submit.prevent="checkForm"
             >
-
                 <div class="field">
                     <label class="label">NÉV *</label>
                     <div class="control">
