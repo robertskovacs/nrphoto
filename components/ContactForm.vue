@@ -3,11 +3,10 @@
         <form
             action="/submission"
             name="contact"
-            method="POST"
-            data-netlify="true"
-            data-netlify-honeypot="bot-field"
-            @submit.prevent="checkForm">
-            
+            method="post"
+            @submit="checkForm"
+            netlify>
+
                 <div class="field">
                     <label class="label">NÉV *</label>
                     <div class="control">
@@ -83,18 +82,17 @@
 export default {
     data() {
         return {
-            name: "",
-            email: "",
-            message: "",
-            service:"",
-            errors: ""
+            name: null,
+            email: null,
+            message: null,
+            service: null,
+            errors: []
         }
     },
     methods: {
-        checkForm () {
+        checkForm:function(e) {
 
             if (this.name && this.email && this.message && this.service) {
-                console.log("true")
                 return true;
             }
 
@@ -117,8 +115,7 @@ export default {
                 this.errors.push('Üzenet kitöltése kötelező');
             }
 
-            console.log("false")
-            return false;
+            e.preventDefault();
       
         }
     }
