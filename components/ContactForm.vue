@@ -4,34 +4,32 @@
             <div class="field">
                 <label class="label">NÉV *</label>
                 <div class="control">
-                    <input :bind="name" class="input" type="text" name="Name">
+                    <input v-model="name" class="input" type="text" name="Name">
                 </div>
             </div>
 
             <div class="field">
                 <label class="label">E-MAIL CÍM *</label>
                 <div class="control">
-                    <input :bind="email" class="input" type="text" name="Email">
+                    <input v-model="email" class="input" type="text" name="Email">
                 </div>
             </div>
 
             <div class="field">
                 <label class="label">MILYEN TÍPUSÚ FOTÓZÁS ÉRDEKELNE? *</label>
-                <div class="control">
-                    <input type="radio" name="service" value="Jegyes">
+                <div class="control"> 
                     <label class="radio">
-                    
+                    <input v-model="service" type="radio" name="service" value="Jegyes">
                     Jegyes
                     </label>
                     <br>
-                    <input type="radio" name="service" value="Esküvő">
                     <label class="radio">
-                    
+                    <input v-model="service" type="radio" name="service" value="Esküvő">
                     Esküvői
                     </label>
                     <br>
-                    <input type="radio" name="service" vlaue="Család">
                     <label class="radio">
+                    <input v-model="service" type="radio" name="service" vlaue="Család">
                     Család
                     </label>
                 </div>
@@ -56,7 +54,7 @@
             <div class="field">
                 <label class="label">ÜZENETED SZÁMUNKRA *</label>
                 <div class="control">
-                    <textarea :bind="message" class="textarea" name="Message"></textarea>
+                    <textarea v-model="message" class="textarea" name="Message"></textarea>
                 </div>
             </div>
 
@@ -93,6 +91,7 @@ export default {
         },
         
         checkForm (e) {
+
             if (this.name && this.email && this.message && this.service) {
                 router.push("/submission")
                 return true;
@@ -101,17 +100,23 @@ export default {
             this.errors = [];
 
             if (!this.name) {
+                console.log(this.name)
                 this.errors.push('A név megadása kötelező.');
             }
             if (!this.email) {
+                console.log(this.email)
                 this.errors.push('Az email megadása kötelező.');
             }
             if (!this.service) {
+                console.log(this.service)
                 this.errors.push('Kérlek jelöld meg melyik szolgáltatás iránt érdeklődsz.');
             }
             if (!this.message) {
+                console.log(this.message)
                 this.errors.push('Üzenet kitöltése kötelező');
             }
+
+            
 
             e.preventDefault();
 
