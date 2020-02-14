@@ -1,19 +1,26 @@
 <template>
     <div class="contact-form-wrapper">
-        <form action="/subission" name="contact" method="POST" data-netlify="true" v-on:submit.prevent="checkForm">
-            <div class="field">
-                <label class="label">NÉV *</label>
-                <div class="control">
-                    <input v-model="name" class="input" type="text" name="Name">
+        <form
+            action="/submission"
+            name="contact"
+            method="POST"
+            data-netlify="true"
+            data-netlify-honeypot="bot-field"
+            @submit.prevent="checkForm">
+            
+                <div class="field">
+                    <label class="label">NÉV *</label>
+                    <div class="control">
+                        <input v-model="name" class="input" type="text" name="Name">
+                    </div>
                 </div>
-            </div>
 
-            <div class="field">
-                <label class="label">E-MAIL CÍM *</label>
-                <div class="control">
-                    <input v-model="email" class="input" type="text" name="Email">
+                <div class="field">
+                    <label class="label">E-MAIL CÍM *</label>
+                    <div class="control">
+                        <input v-model="email" class="input" type="text" name="Email">
+                    </div>
                 </div>
-            </div>
 
             <div class="field">
                 <label class="label">MILYEN TÍPUSÚ FOTÓZÁS ÉRDEKELNE? *</label>
