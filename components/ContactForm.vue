@@ -66,7 +66,7 @@
 
             
             <div class="control has-text-centered">
-                <button class="button is-primary" @click="checkForm" type="submit">Küldés</button>
+                <button class="button is-primary" @click.prevent="checkForm" type="submit">Küldés</button>
             </div> 
         </form>
     </div>
