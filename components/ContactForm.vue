@@ -1,6 +1,6 @@
 <template>
     <div class="contact-form-wrapper">
-        <form name="contact" method="POST" data-netlify="true" v-on:submit.prevent="checkForm">
+        <form name="contact" method="POST" data-netlify="true" onsubmit="return checkForm()">
             <div class="field">
                 <label class="label">NÉV *</label>
                 <div class="control">
@@ -110,7 +110,7 @@ export default {
                 this.errors.push('Üzenet kitöltése kötelező');
             }
 
-            e.preventDefault();
+            return false;
       
         }
     }
