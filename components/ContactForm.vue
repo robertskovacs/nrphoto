@@ -1,6 +1,6 @@
 <template>
     <div class="contact-form-wrapper">
-        <form name="contact" method="POST" data-netlify="true" OnClientClick="return checkForm()">
+        <form action="/subission" name="contact" method="POST" data-netlify="true" v-on:submit.prevent="checkForm">
             <div class="field">
                 <label class="label">NÉV *</label>
                 <div class="control">
@@ -87,8 +87,8 @@ export default {
         checkForm () {
 
             if (this.name && this.email && this.message && this.service) {
-                this.$router.push("/submission")
-                return false;
+                console.log("true")
+                return true;
             }
 
             this.errors = [];
@@ -110,7 +110,8 @@ export default {
                 this.errors.push('Üzenet kitöltése kötelező');
             }
 
-            return true;
+            console.log("false")
+            return false;
       
         }
     }
