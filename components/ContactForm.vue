@@ -1,7 +1,6 @@
 <template>
     <div class="contact-form-wrapper">
         <form
-            action="/submission"
             name="contact"
             method="post"
             @submit="checkForm"
@@ -93,6 +92,7 @@ export default {
         checkForm:function(e) {
 
             if (this.name && this.email && this.message && this.service) {
+                this.$router.push("/submission")
                 return true;
             }
 
