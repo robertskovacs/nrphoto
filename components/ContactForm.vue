@@ -1,6 +1,6 @@
 <template>
     <div class="contact-form-wrapper">
-        <form name="contact" method="POST" data-netlify="true">
+        <form name="contact" method="POST" data-netlify="true" v-on:submit.prevent="checkForm">
             <div class="field">
                 <label class="label">NÉV *</label>
                 <div class="control">
@@ -66,7 +66,7 @@
 
             
             <div class="control has-text-centered">
-                <button class="button is-primary" @click.prevent="checkForm" type="submit">Küldés</button>
+                <button class="button is-primary" type="submit">Küldés</button>
             </div> 
         </form>
     </div>
