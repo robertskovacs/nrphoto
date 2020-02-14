@@ -90,7 +90,7 @@ export default {
             header: { "Content-Type": "application/x-www-form-urlencoded" }
         };
         this.$axios.post(
-            "/contact",
+            "https://nrphoto.netlify.com/contact/",
             this.encode({
             ...this.form
             }),
