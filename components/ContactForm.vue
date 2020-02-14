@@ -3,33 +3,35 @@
         <form name="contact" method="POST" data-netlify="true">
             <div class="field">
                 <label class="label">NÉV *</label>
-                <div :bind="name" class="control">
-                    <input class="input" type="text" name="Name">
+                <div class="control">
+                    <input :bind="name" class="input" type="text" name="Name">
                 </div>
             </div>
 
             <div class="field">
                 <label class="label">E-MAIL CÍM *</label>
                 <div class="control">
-                    <input :bind="type" class="input" type="text" name="Email">
+                    <input :bind="email" class="input" type="text" name="Email">
                 </div>
             </div>
 
             <div class="field">
                 <label class="label">MILYEN TÍPUSÚ FOTÓZÁS ÉRDEKELNE? *</label>
                 <div class="control">
+                    <input type="radio" name="service" value="Jegyes">
                     <label class="radio">
-                    <input type="radio" name="service">
+                    
                     Jegyes
                     </label>
                     <br>
+                    <input type="radio" name="service" value="Esküvő">
                     <label class="radio">
-                    <input type="radio" name="service">
+                    
                     Esküvői
                     </label>
                     <br>
+                    <input type="radio" name="service" vlaue="Család">
                     <label class="radio">
-                    <input type="radio" name="service">
                     Család
                     </label>
                 </div>
@@ -79,7 +81,7 @@ export default {
             name: "",
             email: "",
             message: "",
-            type:"",
+            service:"",
             errors: ""
         }
     },
@@ -91,7 +93,7 @@ export default {
         },
         
         checkForm (e) {
-            if (this.name && this.email && this.message) {
+            if (this.name && this.email && this.message && this.service) {
                 router.push("/submission")
                 return true;
             }
@@ -104,7 +106,7 @@ export default {
             if (!this.email) {
                 this.errors.push('Az email megadása kötelező.');
             }
-            if (!this.type) {
+            if (!this.service) {
                 this.errors.push('Kérlek jelöld meg melyik szolgáltatás iránt érdeklődsz.');
             }
             if (!this.message) {
