@@ -88,7 +88,7 @@ export default {
 
             if (this.name && this.email && this.message && this.service) {
                 this.$router.push("/submission")
-                return true;
+                return false;
             }
 
             this.errors = [];
@@ -110,7 +110,7 @@ export default {
                 this.errors.push('Üzenet kitöltése kötelező');
             }
 
-            return false;
+            return true;
       
         }
     }
