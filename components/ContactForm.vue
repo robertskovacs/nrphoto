@@ -1,10 +1,8 @@
 <template>
     <div class="contact-form-wrapper">
         <form
-            name="contact"
-            method="post"
-            @submit="checkForm"
-            netlify>
+            @submit.prevent="checkForm"
+            >
 
                 <div class="field">
                     <label class="label">NÉV *</label>
@@ -89,10 +87,28 @@ export default {
         }
     },
     methods: {
+        onSubmit () {
+        const axiosConfig = {
+            header: { "Content-Type": "application/x-www-form-urlencoded" }
+        };
+        this.$axios.post(
+            "/",
+            this.encode({
+            "form-name": "contact",
+            ...this.form
+            }),
+            axiosConfig
+            ).then(() => {
+                this.$router.push("/submission");
+            })
+            .catch(() => {
+                this.$router.push("404");
+            });
+        },
         checkForm:function(e) {
 
             if (this.name && this.email && this.message && this.service) {
-                this.$router.push("/submission")
+                this.onSubmit()
                 return true;
             }
 
@@ -117,6 +133,13 @@ export default {
 
             e.preventDefault();
       
+        },
+        encode(data) {
+            return Object.keys(data)
+            .map(
+                key => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`
+            )
+            .join("&");
         }
     }
 }
