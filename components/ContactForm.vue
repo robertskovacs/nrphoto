@@ -91,13 +91,14 @@ export default {
             header: { "Content-Type": "application/x-www-form-urlencoded" }
         };
         this.$axios.post(
-            "/",
+            "/contact",
             this.encode({
             "form-name": "contact",
             ...this.form
             }),
             axiosConfig
-            ).then(() => {
+            ).then((res) => {
+                console.log(res)
                 this.$router.push("/submission");
             })
             .catch(() => {
