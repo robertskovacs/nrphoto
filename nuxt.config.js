@@ -66,12 +66,6 @@ export default {
       '~assets/scss/main.scss'
       ]
   },
-  axios: {
-    proxy: true
-  },
-  proxy: {
-    '/': { target: 'https://nrphoto.netlify.com/', pathRewrite: {'^/': ''}, changeOrigin: true }
-  },
   router: {
     scrollBehavior(to, savedPosition) {
       if (savedPosition) {

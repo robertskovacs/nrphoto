@@ -90,7 +90,7 @@ export default {
             header: { "Content-Type": "application/x-www-form-urlencoded" }
         };
         this.$axios.post(
-            "/",
+            "/contact",
             this.encode({
             ...this.form
             }),
@@ -98,7 +98,8 @@ export default {
             ).then(() => {
                 this.$router.push("/submission");
             })
-            .catch(() => {
+            .catch((e) => {
+                console.log(e)
                 this.$router.push("/404");
             });
         },
