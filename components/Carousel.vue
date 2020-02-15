@@ -1,6 +1,12 @@
 <template>
     <div class="carousel">
-            <img :src="images[activeImage].big">
+            
+            <transition name = "fade">
+                <img v-show="activeImage==0" :src="images[activeImage].big">
+                <img v-show="activeImage==1" :src="images[activeImage].big">
+                <img v-show="activeImage==2" :src="images[activeImage].big">
+                <img v-show="activeImage==3" :src="images[activeImage].big">
+            </transition>
         <div v-on:click="nextImg" class="carousel-nav-next">
             <a class="icon is-small">
                 <font-awesome-icon :icon="['fas', 'chevron-right']"/>

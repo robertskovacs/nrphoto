@@ -27,7 +27,7 @@
               </a>
 
               <a href="/#pillanatok" class="navbar-item">
-                Pillanaok
+                Pillanatok
               </a>
 
               <a href="/" class="navbar-item">

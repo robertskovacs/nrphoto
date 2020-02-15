@@ -143,15 +143,6 @@ export default {
 	height: 100%;
 }
 
-.hero-body {
-	padding:0 !important;
-}
-
-.hero-head {
-	position: absolute;
-	width: 100%;
-}
-
 .carousel-nav-next {
 	position: relative;
     z-index: 1;

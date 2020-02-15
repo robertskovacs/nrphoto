@@ -1,8 +1,11 @@
 <template>
     <div class="contact-form-wrapper">
         <form
-            @submit.prevent="checkForm"
-            >
+                @submit="checkForm"
+                action="/submission"
+                method="post"
+                novalidate="true"
+                            >
                 <div class="field">
                     <label class="label">NÉV *</label>
                     <div class="control">
@@ -67,7 +70,7 @@
 
             
             <div class="control has-text-centered">
-                <button class="button is-primary" type="submit">Küldés</button>
+                <button class="button is-primary is-hidden" type="submit">Küldés</button>
             </div> 
         </form>
     </div>
@@ -90,7 +93,7 @@ export default {
             header: { "Content-Type": "application/x-www-form-urlencoded" }
         };
         this.$axios.post(
-            "https://nrphoto.netlify.com/contact/",
+            "/",
             this.encode({
             ...this.form
             }),
@@ -106,7 +109,6 @@ export default {
         checkForm:function(e) {
 
             if (this.name && this.email && this.message && this.service) {
-                this.onSubmit()
                 return true;
             }
 

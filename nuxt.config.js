@@ -61,6 +61,13 @@ export default {
       }
     ]
   ],
+  generate: {
+    routes: [
+      '/pillanatok/eljegyzes',
+      '/pillanatok/eskuvo',
+      '/pillanatok/csalad'
+    ]
+  },
   styleResources: {
     scss: [
       '~assets/scss/main.scss'
