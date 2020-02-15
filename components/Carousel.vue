@@ -1,10 +1,19 @@
 <template>
     <div class="carousel">
-            
+            <img v-show="activeImage==0" :src="images[3].big">
             <transition name = "fade">
                 <img v-show="activeImage==0" :src="images[activeImage].big">
+            </transition>
+            <img v-show="activeImage==1" :src="images[0].big">
+            <transition name = "fade">
                 <img v-show="activeImage==1" :src="images[activeImage].big">
+            </transition>
+            <img v-show="activeImage==2" :src="images[1].big">
+            <transition name = "fade">
                 <img v-show="activeImage==2" :src="images[activeImage].big">
+            </transition>
+            <img v-show="activeImage==3" :src="images[2].big">
+            <transition name = "fade">
                 <img v-show="activeImage==3" :src="images[activeImage].big">
             </transition>
         <div v-on:click="nextImg" class="carousel-nav-next">
@@ -85,6 +94,13 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
+.fade-enter-active, .fade-leave-active {
+    transition: 0.5s ease-out;
+}
+
+.fade-enter, .fade-leave-to {
+    opacity: 0;
+}
 a {
     color:white;
 }
