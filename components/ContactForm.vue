@@ -74,7 +74,7 @@
 
         </form>
         <div class="control has-text-centered">
-                <button class="button is-primary" @click="sendForm">Küldés</button>
+                <button class="button is-primary" @click="checkForm">Küldés</button>
         </div>
     </div>
 </template>
@@ -123,7 +123,7 @@ export default {
         checkForm () {
 
             if (this.name && this.email && this.message && this.service) {
-                return true;
+                document.getElementById("send-valid-form").click()
             }
 
             this.errors = [];
