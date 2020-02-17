@@ -5,6 +5,7 @@
                 data-netlify="true"
                 name="contact"
                 method="post"
+                ref="form"
                             >
                 <div class="field">
                     <label class="label">NÉV *</label>
@@ -71,11 +72,16 @@
             
 
             <button id="send-valid-form" class="is-hidden" type="submit"></button>
+            <a href="#" v-on:click="checkForm">Küldés</a>
+
+            <button class="button" v-on:click="checkForm">Küldés</button>
 
         </form>
+        <!--
         <div class="control has-text-centered">
-                <button class="button is-primary" @click="checkForm">Küldés</button>
+            <button class="button is-primary" @click="checkForm">Küldés</button>
         </div>
+        -->
     </div>
 </template>
 
@@ -89,6 +95,9 @@ export default {
             service: '',
             errors: []
         }
+    },
+    mounted() {
+        console.log(this)
     },
     methods: {
         sendForm () {
@@ -120,10 +129,10 @@ export default {
                 this.$router.push("/404");
             });
         },
-        checkForm () {
+        checkForm (e) {
 
             if (this.name && this.email && this.message && this.service) {
-                document.getElementById("send-valid-form").click()
+                this.$refs.form.submit()
             }
 
             this.errors = [];
@@ -144,8 +153,7 @@ export default {
                 console.log(this.message)
                 this.errors.push('Üzenet kitöltése kötelező');
             }
-
-            return false;
+            e.preventDefault();
       
         },
         encode (data) {

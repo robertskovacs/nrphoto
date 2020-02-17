@@ -102,13 +102,14 @@ img, figure {
 .hero-img {
 	position: relative;
     overflow: hidden;
+    width: 100%;
 }
 
-.hero-img {
+.hero-img > img{
 	position: absolute;
     object-fit: cover; /*magic*/
     object-position: center center;
-    width: 100%;
+    width: 100% !important;
     min-height: 66%;
 }
 

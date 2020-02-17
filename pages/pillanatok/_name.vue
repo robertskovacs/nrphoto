@@ -12,6 +12,15 @@
 		</section>
 
         <section class="container">
+            
+            <div class="columns">
+                <div class="column has-text-centered">
+                    <h1>{{pageTitle}}</h1>
+                </div>
+            </div>
+        </section>
+
+        <section class="container">
             <Grid />
         </section>
     </div>          
@@ -26,10 +35,23 @@ export default {
         Grid
     },
     data() {
-    return {
-      name: this.$route.params.name
+        return {
+        path: this.$route.params.name
+        }
+    },
+    computed: {
+        pageTitle () {
+            if(this.path === 'eljegyzes') {
+                return 'Eljegyzés'
+            }
+            if (this.path === 'eskuvo') {
+                return 'Esküvő'
+            }
+            if(this.path === 'csalad') {
+                return 'Család'
+            }
+        }
     }
-  }
 }
 </script>
 

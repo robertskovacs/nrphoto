@@ -22,7 +22,7 @@
                 Kezdőoldal
               </a>
 
-              <a href="/" class="navbar-item">
+              <a href="/rolunk" class="navbar-item">
                 Rólunk 
               </a>
 
@@ -30,9 +30,11 @@
                 Pillanatok
               </a>
 
+              <!--
               <a href="/" class="navbar-item">
                 Partnereink
               </a>
+              -->
 
               <a href="/contact" class="navbar-item">
                 Árajánlat
