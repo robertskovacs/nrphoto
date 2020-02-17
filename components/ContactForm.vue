@@ -116,7 +116,7 @@ export default {
                 this.$router.push("/404");
             });
         },
-        checkForm:function(e) {
+        checkForm () {
 
             if (this.name && this.email && this.message && this.service) {
                 return true;
