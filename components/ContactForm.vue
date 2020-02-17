@@ -92,11 +92,15 @@ export default {
     },
     methods: {
         sendForm () {
-            let isValid = this.checkForm()
-            console.log(isValid)
-            if(isValid === true) {
-                document.getElementById("send-valid-form").click()
-            }
+            try {
+                let isValid = this.checkForm()
+                console.log(isValid)
+                if(isValid == true) {
+                    document.getElementById("send-valid-form").click()
+                }
+            } catch (e) {
+                console.log(e)
+            }    
         },
         onSubmit () {
         const axiosConfig = {
