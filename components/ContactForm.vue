@@ -72,13 +72,10 @@
 
             <button id="send-valid-form" class="is-hidden" type="submit"></button>
 
-
-            <div class="control has-text-centered">
-                <button class="button is-primary" @click="sendForm">Küldés</button>
-            </div>
-
-
         </form>
+        <div class="control has-text-centered">
+                <button class="button is-primary" @click="sendForm">Küldés</button>
+        </div>
     </div>
 </template>
 
@@ -142,7 +139,7 @@ export default {
                 this.errors.push('Üzenet kitöltése kötelező');
             }
 
-            e.preventDefault();
+            return false;
       
         },
         encode (data) {
