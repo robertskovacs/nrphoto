@@ -1,21 +1,28 @@
 <template>
     <div class="carousel">
-            <img v-show="activeImage==0" :src="images[3].big">
+            <img  v-if="show" :src="images[prevImage]">
             <transition name = "fade">
-                <img v-show="activeImage==0" :src="images[activeImage].big">
+                <img v-if="show" :src="images[activeImage]">
             </transition>
-            <img v-show="activeImage==1" :src="images[0].big">
+            <!--
+            <img v-show="activeImage==0" :src="images[3]">
             <transition name = "fade">
-                <img v-show="activeImage==1" :src="images[activeImage].big">
+                <img v-show="activeImage==0" :src="images[activeImage]">
             </transition>
-            <img v-show="activeImage==2" :src="images[1].big">
+            <img v-show="activeImage==1" :src="images[0]">
             <transition name = "fade">
-                <img v-show="activeImage==2" :src="images[activeImage].big">
+                <img v-show="activeImage==1" :src="images[activeImage]">
             </transition>
-            <img v-show="activeImage==3" :src="images[2].big">
+            <img v-show="activeImage==2" :src="images[1]">
             <transition name = "fade">
-                <img v-show="activeImage==3" :src="images[activeImage].big">
+                <img v-show="activeImage==2" :src="images[activeImage]">
             </transition>
+            <img v-show="activeImage==3" :src="images[2]">
+            <transition name = "fade">
+                <img v-show="activeImage==3" :src="images[activeImage]">
+            </transition>
+            -->
+        <!--
         <div v-on:click="nextImg" class="carousel-nav-next">
             <a class="icon is-small">
                 <font-awesome-icon :icon="['fas', 'chevron-right']"/>
@@ -26,10 +33,11 @@
                 <font-awesome-icon :icon="['fas', 'chevron-left']"/>
             </a>
         </div>
+        -->
 
-        <div class="main-logo-wrapper">
+        <figure class="main-logo-wrapper">
             <img class="main-logo" src="/logo-white.png">
-        </div>
+        </figure>
         
     </div>
 </template>
@@ -40,33 +48,37 @@ export default {
         return {
             //Array to hold all carousel images
             images: [
-                {
-                    id: '1',
-                    big: 'images/p1.jpeg',
-                    thumb: 'images/thumbs/p1.jpeg'
-                },
-                {
-                    id: '2',
-                    big: 'images/p2.jpeg',
-                    thumb: 'images/thumbs/p2.jpeg'
-                },
-                {
-                    id: '3',
-                    big: 'images/p3.jpeg',
-                    thumb: 'images/thumbs/p3.jpeg'
-                },
-                {
-                    id: '4',
-                    big: 'images/p4.jpeg',
-                    thumb: 'images/thumbs/p4.jpeg'
-                }
+                    'images/p1.jpeg',
+                    'images/p2.jpeg',
+                    'images/p3.jpeg',
+                    'images/p4.jpeg'
             ],
             //Index of the active image on the images array
-            activeImage: 0
+            activeImage: 0,
+            prevImage: null,
+            show: true
         }
     },
     mounted () {
         this.timer()
+    },
+    watch: {
+        // whenever question changes, this function will run
+        activeImage: function (newImg, oldImg) {
+        this.show =! this.show
+        
+        let _this = this
+            setTimeout(function(){
+                _this.show =! _this.show
+                }, 10);
+
+        if(this.activeImage == 0) {
+            this.prevImage = this.images.length - 1
+            
+        } else {
+            this.prevImage = this.activeImage - 1
+        }
+        }
     },
     methods: {
         nextImg () {
@@ -82,20 +94,19 @@ export default {
             } else {
                 this.activeImage = this.images.length - 1
             }
-            
         },
         timer () {
             let _this = this
             setInterval(function(){
                 _this.nextImg();
-                }, 8000);
+                }, 3000);
         }
     }
 }
 </script>
 <style lang="scss" scoped>
 .fade-enter-active, .fade-leave-active {
-    transition: 0.5s ease-out;
+    transition: 0.8s ease-out;
 }
 
 .fade-enter, .fade-leave-to {
@@ -106,5 +117,42 @@ a {
 }
 a:hover {
     color:#cecece;
+}
+
+.carousel-nav-next {
+	position: relative;
+    z-index: 1;
+	color: white;
+	float: right;
+	top:50%;
+	margin-right:3rem;
+	font-size: 50px;
+}
+
+.carousel-nav-prev {
+	position: relative;
+    z-index: 1;
+	color: white;
+	float: left;
+	top:50%;
+	margin-left:3rem;
+	font-size: 50px;
+}
+.main-logo-wrapper {
+    position: relative;
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
+    width:150px;
+    height:150px;
+	top:80%;
+    
+}
+
+.main-logo-wrapper > img {
+    width:100%;
+    height:100%;
+    z-index: 1;
+    position: absolute;
 }
 </style>

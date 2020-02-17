@@ -130,12 +130,11 @@ export default {
 
 <style>
 
-
 .carousel {
 	position: relative;
     overflow: hidden;
 }
-.carousel, img {
+.carousel, .carousel > img {
 	position: absolute;
     object-fit: cover; /*magic*/
     object-position: center center;
@@ -143,38 +142,24 @@ export default {
 	height: 100%;
 }
 
-.carousel-nav-next {
-	position: relative;
-    z-index: 1;
-	color: white;
-	float: right;
-	top:50%;
-	margin-right:3rem;
-	font-size: 50px;
-}
 
-.carousel-nav-prev {
-	position: relative;
-    z-index: 1;
-	color: white;
-	float: left;
-	top:50%;
-	margin-left:3rem;
-	font-size: 50px;
-}
 
 .nain-logo-wrapper {
 	position:relative;
+	
+	height:auto;
+	bottom:0;
+	margin: 0 auto 0;
+	display: block;
 }
 
-.main-logo, .main-logo.img {
-	height:auto !important;
-	width: 120px !important;
-	min-height:0 !important;
-	display: block !important;
-	position:absolute;
+.main-logo > img {
+	margin: 0 auto 0;
+	display: block;
 	bottom:0;
-	left:43%;
+	height: 50px;
 }
+
+	
 
 </style>

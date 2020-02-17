@@ -69,9 +69,15 @@
             </div>
 
             
+
+            <button id="send-valid-form" class="is-hidden" type="submit"></button>
+
+
             <div class="control has-text-centered">
-                <button class="button is-primary is-hidden" type="submit">Küldés</button>
-            </div> 
+                <button class="button is-primary" @click="sendForm">Küldés</button>
+            </div>
+
+
         </form>
     </div>
 </template>
@@ -88,6 +94,9 @@ export default {
         }
     },
     methods: {
+        sendForm () {
+            document.getElementById("send-valid-form").click(); // Click on the checkbox
+        },
         onSubmit () {
         const axiosConfig = {
             header: { "Content-Type": "application/x-www-form-urlencoded" }
