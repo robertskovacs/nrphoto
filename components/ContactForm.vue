@@ -92,7 +92,9 @@ export default {
     },
     methods: {
         sendForm () {
-            if(this.checkForm() === true) {
+            this.checkForm()
+            let isValid = this.checkForm()
+            if(isValid === true) {
                 document.getElementById("send-valid-form").click()
             }
         },
