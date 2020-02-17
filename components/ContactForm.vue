@@ -1,10 +1,10 @@
 <template>
     <div class="contact-form-wrapper">
         <form
-                @submit="checkForm"
-                action="/submission"
+                action="/submission/"
+                data-netlify="true"
+                name="contact"
                 method="post"
-                novalidate="true"
                             >
                 <div class="field">
                     <label class="label">NÉV *</label>
@@ -95,7 +95,9 @@ export default {
     },
     methods: {
         sendForm () {
-            document.getElementById("send-valid-form").click(); // Click on the checkbox
+            if(this.checkForm() === true) {
+                document.getElementById("send-valid-form").click()
+            }
         },
         onSubmit () {
         const axiosConfig = {
