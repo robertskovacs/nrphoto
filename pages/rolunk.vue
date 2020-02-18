@@ -59,7 +59,7 @@
                 </div>
                 <div class="column is-three-quarters">
                     <figure class="image is-4by3">
-                        <img src="https://bulma.io/images/placeholders/480x480.png">
+                        <img src="https://images.pexels.com/photos/1438081/pexels-photo-1438081.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500">
                     </figure>
                 </div>
                 <div class="column">

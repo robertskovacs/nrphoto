@@ -18,7 +18,7 @@ export default {
   /*
   ** Customize the progress-bar color
   */
-  loading: { color: '#fff' },
+  loading: { color: '#000000' },
   /*
   ** Global CSS
   */
@@ -74,24 +74,48 @@ export default {
       ]
   },
   router: {
-    scrollBehavior(to, savedPosition) {
-        let position = {}
-        if (to.hash) {
-          position = { selector: to.hash }
+    scrollBehavior: async (to, from, savedPosition) => {
+      if (savedPosition) {
+        return savedPosition
+      }
+
+      const findEl = async (hash, x) => {
+        return document.querySelector(hash) ||
+          new Promise((resolve, reject) => {
+            if (x > 50) {
+              return resolve()
+            }
+            setTimeout(() => { resolve(findEl(hash, ++x || 1)) }, 100)
+          })
+      }
+
+      if (to.hash) {
+        let el = await findEl(to.hash)
+        if ('scrollBehavior' in document.documentElement.style) {
+          return window.scrollTo({ top: el.offsetTop, behavior: 'smooth' })
         } else {
-          position = { x: 0, y: 0 }
+          return window.scrollTo(0, el.offsetTop)
         }
-        return position
+      }
+
+      return { x: 0, y: 0 }
     }
   },
   /*
   ** Build configuration
   */
+ vue: {
+  config: {
+    productionTip: false,
+    devtools: true
+  }
+},
   build: {
-    /*
-    ** You can extend webpack config here
-    */
-    extend (config, ctx) {
+    html: {
+      minify: {
+        collapseWhitespace: true,  // as @dario30186 mentioned
+        removeComments: true, // 👈 add this line
+      }
     }
   }
 }

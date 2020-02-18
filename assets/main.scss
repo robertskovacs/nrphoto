@@ -171,4 +171,22 @@ label, .label {
     padding:50px;
 }
 
+//page transition
+.page-enter-active, .page-leave-active {
+    transition: all .6s
+  }
+  .page-enter, .page-leave-active {
+    opacity: 0;
+  }
+
+html, body {
+    color: black;
+    background-color:black;
+}
+
+.wrapper {
+    background-color:white;
+}
+  
+
 @import '~bulma';

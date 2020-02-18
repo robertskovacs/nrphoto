@@ -1,40 +1,38 @@
 <template>
     <div class="contact-form-wrapper">
         <form
-                action="/submission/"
-                data-netlify="true"
-                name="contact"
-                method="post"
-                ref="form"
-                            >
+            netlify
+            name="contact">   
                 <div class="field">
-                    <label class="label">NÉV *</label>
-                    <div class="control">
-                        <input v-model="name" class="input" type="text" name="Name">
-                    </div>
+                    <label class="label">NÉV *
+                        <div class="control">
+                            <input v-model="form.name" class="input" type="text" name="name">
+                        </div>
+                    </label>
                 </div>
 
-                <div class="field">
-                    <label class="label">E-MAIL CÍM *</label>
-                    <div class="control">
-                        <input v-model="email" class="input" type="text" name="Email">
-                    </div>
+
+            <div class="field">
+                <label class="label">E-MAIL CÍM *</label>
+                <div class="control">
+                    <input v-model="form.email" class="input" type="text" name="email">
                 </div>
+            </div>
 
             <div class="field">
                 <label class="label">MILYEN TÍPUSÚ FOTÓZÁS ÉRDEKELNE? *</label>
                 
                 <div class="control"> 
                     <label class="radio">
-                    <input v-model="service" type="radio" name="service" value="Jegyes">
+                    <input v-model="form.service" type="radio" name="service" value="Jegyes" @click="ddTestVm.ddTestSelectedOption = option.value">
                     Jegyes
                     </label>
                     <label class="radio">
-                    <input v-model="service" type="radio" name="service" value="Esküvő">
+                    <input v-model="form.service" type="radio" name="service" value="Esküvő">
                     Esküvői
                     </label>
                     <label class="radio">
-                    <input v-model="service" type="radio" name="service" vlaue="Család">
+                    <input v-model="form.service" type="radio" name="service" value="Család">
                     Család
                     </label>
                 </div>
@@ -44,7 +42,7 @@
                 <label class="label">HONNAN HALLOTTÁL RÓLUNK?</label>
                 <div class="control">
                     <div class="select is-primary">
-                        <select name="Source">
+                        <select name="Source" v-model="form.source">
                             <option></option>
                             <option>Facebook</option>
                             <option>Instagram</option>
@@ -59,7 +57,7 @@
             <div class="field">
                 <label class="label">ÜZENETED SZÁMUNKRA *</label>
                 <div class="control">
-                    <textarea v-model="message" class="textarea" name="Message"></textarea>
+                    <textarea v-model="form.message" class="textarea" name="message"></textarea>
                 </div>
             </div>
 
@@ -69,100 +67,74 @@
                 </div>
             </div>
 
-            
-
-            <button id="send-valid-form" class="is-hidden" type="submit"></button>
-            <a href="#" v-on:click="checkForm">Küldés</a>
-
-            <button class="button" v-on:click="checkForm">Küldés</button>
+            <div class="control has-text-centered">
+                <button class="button is-primary" type="submit" @click.prevent="checkForm">Küldés</button>
+            </div>
 
         </form>
-        <!--
-        <div class="control has-text-centered">
-            <button class="button is-primary" @click="checkForm">Küldés</button>
-        </div>
-        -->
     </div>
 </template>
 
 <script>
+import axios from 'axios';
 export default {
     data() {
         return {
-            name: null,
-            email: null,
-            message: null,
-            service: '',
+            form: {
+                name: '',
+                email: '',
+                message: '',
+                service: '',
+                source: ''
+            },
             errors: []
         }
     },
-    mounted() {
-        console.log(this)
-    },
     methods: {
-        sendForm () {
-            try {
-                let isValid = this.checkForm()
-                console.log(isValid)
-                if(isValid == true) {
-                    document.getElementById("send-valid-form").click()
-                }
-            } catch (e) {
-                console.log(e)
-            }    
+        encode (data) {
+        return Object.keys(data)
+            .map(
+            key => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`
+            )
+            .join("&");
         },
-        onSubmit () {
-        const axiosConfig = {
-            header: { "Content-Type": "application/x-www-form-urlencoded" }
-        };
-        this.$axios.post(
-            "/",
-            this.encode({
-            ...this.form
-            }),
-            axiosConfig
-            ).then(() => {
-                this.$router.push("/submission");
+        handleSubmit() {
+            fetch('/', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: this.encode({ 'form-name': 'contact', ...this.form }),
             })
-            .catch((e) => {
-                console.log(e)
-                this.$router.push("/404");
-            });
+                .then(() => this.$router.push("/submission"))
+                .catch(error =>
+                this.$router.push("/404"));
         },
         checkForm (e) {
-
-            if (this.name && this.email && this.message && this.service) {
-                this.$refs.form.submit()
+            if (this.form.name && this.form.email && this.form.message && this.form.service) {
+                this.handleSubmit()
             }
 
             this.errors = [];
 
-            if (!this.name) {
-                console.log(this.name)
+            if (!this.form.name) {
+                console.log(this.form.name)
                 this.errors.push('A név megadása kötelező.');
             }
-            if (!this.email) {
-                console.log(this.email)
+            if (!this.form.email) {
+                console.log(this.form.email)
                 this.errors.push('Az email megadása kötelező.');
             }
-            if (!this.service) {
-                console.log(this.service)
+            if (!this.form.service) {
+                console.log(this.form.service)
                 this.errors.push('Kérlek jelöld meg melyik szolgáltatás iránt érdeklődsz.');
             }
-            if (!this.message) {
-                console.log(this.message)
+            if (!this.form.message) {
+                console.log(this.form.message)
                 this.errors.push('Üzenet kitöltése kötelező');
             }
+            
             e.preventDefault();
       
-        },
-        encode (data) {
-            return Object.keys(data)
-                .map(
-                key => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`
-                )
-                .join("&");
-        },
+        }
         
     }
 }

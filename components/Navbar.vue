@@ -18,17 +18,17 @@
 
           <div class="navbar-menu" v-bind:class="{'is-active': isOpen}">
             <div class="navbar-end">
-              <a href="/" class="navbar-item">
+              <nuxt-link to="/" class="navbar-item">
                 Kezdőoldal
-              </a>
+              </nuxt-link>
 
-              <a href="/rolunk" class="navbar-item">
+              <nuxt-link to="/rolunk" class="navbar-item">
                 Rólunk 
-              </a>
+              </nuxt-link>
 
-              <a href="/#pillanatok" class="navbar-item">
+              <nuxt-link :to="{ path: '/', hash:'#pillanatok'}" class="navbar-item" @click="isOpen = false">
                 Pillanatok
-              </a>
+              </nuxt-link>
 
               <!--
               <a href="/" class="navbar-item">
@@ -36,9 +36,9 @@
               </a>
               -->
 
-              <a href="/contact" class="navbar-item">
+              <nuxt-link to="/contact" class="navbar-item">
                 Árajánlat
-              </a>
+              </nuxt-link>
 
               <a href="https://www.facebook.com/nagyrichardphoto/" class="navbar-item">
                 <span class="icon is-medium">
