@@ -51,7 +51,7 @@ export default {
                     'https://nrphoto.s3.eu-central-1.amazonaws.com/eskuvo/IMG_0820.jpg',
                     'https://nrphoto.s3.eu-central-1.amazonaws.com/eskuvo/diavetites/IMG_0820-2+(1).jpg',
                     'https://nrphoto.s3.eu-central-1.amazonaws.com/eskuvo/diavetites/IMG_0093.jpg',
-                    'images/p4.jpeg'
+                    'https://nrphoto.s3.eu-central-1.amazonaws.com/eskuvo/diavetites/IMG_0245.jpg'
             ],
             //Index of the active image on the images array
             activeImage: 0,
