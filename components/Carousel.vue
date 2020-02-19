@@ -22,7 +22,7 @@
                 <img v-show="activeImage==3" :src="images[activeImage]">
             </transition>
             -->
-        <!--
+        
         <div v-on:click="nextImg" class="carousel-nav-next">
             <a class="icon is-small">
                 <font-awesome-icon :icon="['fas', 'chevron-right']"/>
@@ -33,7 +33,7 @@
                 <font-awesome-icon :icon="['fas', 'chevron-left']"/>
             </a>
         </div>
-        -->
+        
 
         <figure class="main-logo-wrapper">
             <img class="main-logo" src="/logo-white.png">
@@ -48,7 +48,6 @@ export default {
         return {
             //Array to hold all carousel images
             images: [
-                    'https://nrphoto.s3.eu-central-1.amazonaws.com/eskuvo/IMG_0820.jpg',
                     'https://nrphoto.s3.eu-central-1.amazonaws.com/eskuvo/diavetites/IMG_0820-2+(1).jpg',
                     'https://nrphoto.s3.eu-central-1.amazonaws.com/eskuvo/diavetites/IMG_0093.jpg',
                     'https://nrphoto.s3.eu-central-1.amazonaws.com/eskuvo/diavetites/IMG_0245.jpg'
@@ -99,7 +98,7 @@ export default {
             let _this = this
             setInterval(function(){
                 _this.nextImg();
-                }, 3000);
+                }, 4500);
         }
     }
 }
