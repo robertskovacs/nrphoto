@@ -49,8 +49,8 @@ export default {
             //Array to hold all carousel images
             images: [
                     'https://nrphoto.s3.eu-central-1.amazonaws.com/eskuvo/IMG_0820.jpg',
-                    'images/p2.jpeg',
-                    'images/p3.jpeg',
+                    'https://nrphoto.s3.eu-central-1.amazonaws.com/eskuvo/diavetites/IMG_0820-2+(1).jpg',
+                    'https://nrphoto.s3.eu-central-1.amazonaws.com/eskuvo/diavetites/IMG_0093.jpg',
                     'images/p4.jpeg'
             ],
             //Index of the active image on the images array
