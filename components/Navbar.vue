@@ -37,7 +37,7 @@
               -->
 
               <nuxt-link to="/contact" class="navbar-item">
-                Árajánlat
+                Árajánlatkérés
               </nuxt-link>
 
               <a href="https://www.facebook.com/nagyrichardphoto/" class="navbar-item">

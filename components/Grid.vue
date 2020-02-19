@@ -5,8 +5,8 @@
 
             <div class="tile is-parent is-vertical">
                 <article class="tile is-child">
-                    <figure class="image is-3by5">
-                        <img src="https://images.pexels.com/photos/3700513/pexels-photo-3700513.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260">
+                    <figure class="image is-4by3">
+                        <img src="https://nrphoto.s3.eu-central-1.amazonaws.com/eskuvo/IMG_0026.jpg">
                     </figure>
                 </article>
                 <article class="tile is-child">

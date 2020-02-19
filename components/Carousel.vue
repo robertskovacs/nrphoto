@@ -48,7 +48,7 @@ export default {
         return {
             //Array to hold all carousel images
             images: [
-                    'images/p1.jpeg',
+                    'https://nrphoto.s3.eu-central-1.amazonaws.com/eskuvo/IMG_0820.jpg',
                     'images/p2.jpeg',
                     'images/p3.jpeg',
                     'images/p4.jpeg'
