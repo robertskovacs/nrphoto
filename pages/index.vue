@@ -85,7 +85,7 @@
 				<div class="column">
 					<nuxt-link to="/pillanatok/csalad">
 						<figure class="image is-square">
-							<img src="https://bulma.io/images/placeholders/480x480.png">
+							<img src="https://nrphoto.s3.eu-central-1.amazonaws.com/eskuvo/pillanatok/IMG_8914.jpg">
 						</figure>
 						<div class="has-text-centered">
 							<h2>Család</h2>
