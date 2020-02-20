@@ -1,39 +1,47 @@
 <template>
   	<div class="wrapper">
-		<section class="hero is-fullheight">
-			<div class="hero-head">
-				<Navbar />
-			</div>
-			<div class="hero-body">
-                <div class="hero-img image is-3by1">
-                        <img src="https://d2vw2j0fzp6c9l.cloudfront.net/images/sample_photos/sample-275_XL.jpg">
-            
-                </div>
-            </div>
-		</section>
+        <Navbar />
+        
+            <div class="parallax"></div>
 
-        <section class="container">
-            <div class="columns">
-                <div class="column">
-                </div>
-                <div class="column is-three-quarters has-text-centered">
-                    <h2>KEZDŐDJÖN EL A KALAND</h2>
-                    <p>Amennyiben szeretnétek, hogy pillanataitokat Mi örökítsük meg, kérj be árajánlatot.</p>
-                </div>
-                <div class="column">
-                </div>
-            </div>
-            <div class="columns">
-                <div class="column">
-                </div>
-                <div class="column is-three-quarters">
-                    <ContactForm />
-                </div>
-                <div class="column">
-                </div>
+            <div>
+                <section class="container">
+                    <div class="columns">
+                        <div class="column">
+                        </div>
+                        <div class="column is-three-quarters has-text-centered">
+                            <h2>KEZDŐDJÖN EL A KALAND</h2>
+                            <p>Amennyiben szeretnétek, hogy pillanataitokat Mi örökítsük meg, kérj be árajánlatot.</p>
+                        </div>
+                        <div class="column">
+                        </div>
+                    </div>
+                    <div class="columns">
+                        <div class="column">
+                        </div>
+                        <div class="column is-three-quarters">
+                            <ContactForm />
+                        </div>
+                        <div class="column">
+                        </div>
+                    </div>
+
+                </section>
             </div>
 
-		</section>
+            <!--
+            <section class="hero is-fullheight">
+                <div class="hero-head">
+                    
+                </div>
+                <div class="hero-body">
+                    <div class="hero-img image is-3by1">
+                            <img src="https://d2vw2j0fzp6c9l.cloudfront.net/images/sample_photos/sample-275_XL.jpg">
+                
+                    </div>
+                </div>
+            </section>
+            -->
  	</div>
 </template>
 
@@ -55,4 +63,7 @@ export default {
 .hero.is-fullheight {
     min-height: 80vh !important;
 }
+
+
+
 </style>

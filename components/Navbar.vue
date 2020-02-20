@@ -26,7 +26,7 @@
                 Rólunk 
               </nuxt-link>
 
-              <nuxt-link :to="{ path: '/', hash:'#pillanatok'}" class="navbar-item" @click="isOpen = false">
+              <nuxt-link :to="{ path: '/', hash:'#pillanatok'}" class="navbar-item" @click.native="scrollFix('#pillanatok')" @click="isOpen = false">
                 Pillanatok
               </nuxt-link>
 
@@ -40,13 +40,13 @@
                 Árajánlatkérés
               </nuxt-link>
 
-              <a href="https://www.facebook.com/nagyrichardphoto/" class="navbar-item">
+              <a href="https://www.facebook.com/nagyrichardphoto/" class="navbar-item social-icon">
                 <span class="icon is-medium">
                   <font-awesome-icon :icon="['fab', 'facebook-f']"/>
                 </span>
               </a>
 
-              <a href="https://www.instagram.com/nagyrichardphoto/" class="navbar-item">
+              <a href="https://www.instagram.com/nagyrichardphoto/" class="navbar-item social-icon">
                 <font-awesome-icon :icon="['fab', 'instagram']"/>
               </a>
 
@@ -64,7 +64,19 @@ export default {
     return {
         isOpen: false
     }
-  }
+  },
+   mounted: function()
+	{
+		// From testing, without a brief timeout, it won't work.
+		setTimeout(() => this.scrollFix(this.$route.hash), 100);
+	},
+	methods: {
+    scrollFix: function(hashbang)
+		{
+    location.hash = ""
+    history.pushState("", document.title, location.pathname);
+		}
+	}
 }
 </script>
 
@@ -75,6 +87,10 @@ export default {
 
 .navbar-white {
   background-color: white !important;
+}
+
+.social-icon {
+  font-size:20px;
 }
 
 </style>

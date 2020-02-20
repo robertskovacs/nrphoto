@@ -24,6 +24,13 @@ $footer-color: true;
 $navbar-background-color: transparent;
 $navbar-item-hover-color: $secondary;
 $navbar-item-hover-background-color: transparent;
+$navbar-item-active-color: red;
+a.navbar-item:focus {
+    color:white !important
+}
+a.navbar-item:hover {
+    color: $secondary !important;
+}
 //$navbar-height: 7.5rem;
 
 //Hero

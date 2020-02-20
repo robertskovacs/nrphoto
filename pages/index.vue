@@ -124,7 +124,7 @@ export default {
     components: {
 		Navbar,
 		Carousel
-	},
+	}
 }
 </script>
 

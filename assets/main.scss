@@ -187,6 +187,42 @@ html, body {
 .wrapper {
     background-color:white;
 }
+
+.parallax {
+    
+    /* The image used */
+    position:relative;
+    top:-100px;
+    background-image: url('/images/p1.jpeg');
   
+    /* Full height */
+    height: 70vh !important; 
+  
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+/*
+.button {
+    background: linear-gradient(to left, #eee, #eee) !important;
+    background-repeat: no-repeat !important;
+    background-size: 0 100% !important;
+    transition: background-size 1s 0s !important;
+    border-width:0px !important;
+}
+.button:hover {
+    // background:red !important;
+    background-size: 100% 100% !important;
+}
+.is-primary, .is-primary:hover {
+    background-color: red !important;
+    border-color:transparent !important;
+}
+*/
+
+
 
 @import '~bulma';
