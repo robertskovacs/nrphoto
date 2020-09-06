@@ -1,27 +1,10 @@
 <template>
     <div class="carousel">
-            <img  v-if="show" :src="images[prevImage]">
-            <transition name = "fade">
-                <img v-if="show" :src="images[activeImage]">
-            </transition>
-            <!--
-            <img v-show="activeImage==0" :src="images[3]">
-            <transition name = "fade">
-                <img v-show="activeImage==0" :src="images[activeImage]">
-            </transition>
-            <img v-show="activeImage==1" :src="images[0]">
-            <transition name = "fade">
-                <img v-show="activeImage==1" :src="images[activeImage]">
-            </transition>
-            <img v-show="activeImage==2" :src="images[1]">
-            <transition name = "fade">
-                <img v-show="activeImage==2" :src="images[activeImage]">
-            </transition>
-            <img v-show="activeImage==3" :src="images[2]">
-            <transition name = "fade">
-                <img v-show="activeImage==3" :src="images[activeImage]">
-            </transition>
-            -->
+
+        <img  v-if="show" :src="images[prevImage]">
+        <transition name = "fade">
+            <img v-if="show" :src="images[activeImage]">
+        </transition>
         
         <div v-on:click="nextImg" class="carousel-nav-next">
             <a class="icon is-small">
@@ -76,18 +59,19 @@ export default {
     },
     methods: {
         nextImg () {
-            if(this.activeImage < this.images.length - 1) {
-                this.activeImage =+ 1
+            if(this.activeImage < this.images.length - 2) {
+                this.activeImage += 1
             } else {
                 this.activeImage = 0
             }
         },
         prevImg () {
             if(this.activeImage > 0) {
-                this.activeImage =- 1
+                this.activeImage -= 1
             } else {
                 this.activeImage = this.images.length - 1
             }
+
         },
         timer () {
             let _this = this
