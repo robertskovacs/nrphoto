@@ -46,13 +46,12 @@
 export default {
     data() {
         return {
-            //Array to hold all carousel images
             images: [
                     '/images/1.jpg',
                     '/images/2.jpg',
-                    '/images/3.jpg'
+                    '/images/3.jpg',
+                    '/images/4.jpg'
             ],
-            //Index of the active image on the images array
             activeImage: 0,
             prevImage: null,
             show: true
@@ -62,34 +61,30 @@ export default {
         this.timer()
     },
     watch: {
-        // whenever question changes, this function will run
         activeImage: function (newImg, oldImg) {
-        this.show =! this.show
-        
-        let _this = this
-            setTimeout(function(){
-                _this.show =! _this.show
-                }, 10);
-
-        if(this.activeImage == 0) {
-            this.prevImage = this.images.length - 1
-            
-        } else {
-            this.prevImage = this.activeImage - 1
-        }
+            this.show =! this.show
+            let _this = this
+                setTimeout(function(){
+                    _this.show =! _this.show
+                    }, 10);
+            if(this.activeImage == 0) {
+                this.prevImage = this.images.length - 1
+            } else {
+                this.prevImage = this.activeImage - 1
+            }
         }
     },
     methods: {
         nextImg () {
-            if(this.activeImage < this.images.length-1) {
-                this.activeImage += 1
+            if(this.activeImage < this.images.length - 1) {
+                this.activeImage =+ 1
             } else {
                 this.activeImage = 0
             }
         },
         prevImg () {
             if(this.activeImage > 0) {
-                this.activeImage -= 1
+                this.activeImage =- 1
             } else {
                 this.activeImage = this.images.length - 1
             }
@@ -97,7 +92,7 @@ export default {
         timer () {
             let _this = this
             setInterval(function(){
-                _this.nextImg();
+                    _this.nextImg();
                 }, 4500);
         }
     }
